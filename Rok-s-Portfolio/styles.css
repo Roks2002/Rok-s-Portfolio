@@ -1,0 +1,106 @@
+/* Basic reset and styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  color: #333;
+  height: 100vh; /* Sets the body height to the full height of the window */
+}
+
+/* Navbar styling */
+nav {
+  display: flex;
+  justify-content: flex-end; /* Aligns all items to the right */
+  background-color: #333;
+  padding: 1rem;
+}
+
+/* Reset for ul elements in nav */
+.navbar {
+  list-style-type: none;
+  display: flex;
+}
+
+.navbar li {
+  margin: 0 10px;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+}
+
+.navbar a:hover {
+  background-color: #575757;
+  border-radius: 5px;
+}
+
+/* Front-page styling */
+#front-page {
+  display: flex;
+  flex-direction: column; /* Stacks all elements in a column */
+  justify-content: center; /* Vertically centers content */
+  align-items: flex-start; /* Aligns all items to the left */
+  height: 100vh; /* Sets the section height to the full height of the window */
+  background-color: #f0f0f0; /* Background color */
+  margin-left: 20%; /* Starts the section 20% from the left */
+  width: 80%; /* Adjusts width to fill the remaining space */
+  padding: 2rem; /* Adds padding to the section */
+}
+
+#front-page h1 {
+  font-size: 4rem; /* Increased font size */
+  color: #333;
+  margin-bottom: 0.5rem; /* Adds space between elements */
+  white-space: nowrap; /* Prevents the text from wrapping */
+  overflow: hidden; /* Hides the overflow */
+  border-right: 0.15em solid #333; /* Adds a cursor effect */
+  animation: blink 0.7s infinite; /* Blinking cursor effect */
+  height: 1.2em; /* Fixed height for the h1 element */
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent; /* Makes the cursor invisible at 50% */
+  }
+}
+
+#front-page h2 {
+  font-size: 2rem;
+  color: #666;
+  margin-bottom: 0.5rem; /* Adds space between elements */
+}
+
+#front-page h3 {
+  font-size: 1.5rem;
+  color: #888;
+  margin-bottom: 1rem; /* Adds space below the h3 for separation */
+}
+
+/* Section styling */
+section {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+#skills,
+#experience,
+#contact {
+  margin-top: 2rem;
+}
+
+h2 {
+  margin-bottom: 1rem;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
