@@ -5,41 +5,81 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
     <title>Rok's Portfolio</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.14/lottie.min.js"></script>
   </head>
   <body>
     <!-- Navbar -->
     <nav>
       <ul class="navbar">
+        <li>
+          <a href="#">RL.</a>
+        </li>
         <li><a href="#home">Home</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#experience">Experience</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <!-- Dark mode toggle button -->
+        <li>
+          <label class="switch">
+            <input type="checkbox" id="dark-mode-toggle" />
+            <span class="slider"></span>
+          </label>
+        </li>
       </ul>
     </nav>
+
     <section id="front-page">
-      <h1>
-        <span id="welcome-text"></span>
-      </h1>
-      <h2>I'm Rok.</h2>
-      <h3>
-        Full Stack Developer with experience in designing and developing
-        innovative web applications. Expert in both front-end and back-end
-        technologies, recognized for creating intuitive and efficient solutions
-        that enhance the user experience.
-      </h3>
+      <div class="text-container">
+        <h2 id="welcome-text"></h2>
+        <h1 class="gradient-text">
+          Hey, I'm Rok Levec, <br />a junior web frontend developer.
+        </h1>
+        <h3>
+          I am passionate about crafting intuitive and visually captivating
+          websites. I thrive on transforming ideas into engaging, interactive
+          web experiences.
+        </h3>
+      </div>
+      <!-- Animation Container -->
+      <div id="lottie-container"></div>
     </section>
+
     <section id="skills">
-      <h2>Skills</h2>
-      <p>Describe your skills here.</p>
+      <h2>SKILLS<span class="dot">.</span></h2>
+
+      <p>
+        Welcome to my skills section. Explore my diverse skill set as a Full
+        Stack Developer. From intuitive UI design to efficient web application
+        development, this compilation reflects my commitment to delivering
+        innovative solutions that elevate user experiences.
+      </p>
     </section>
+
     <section id="experience">
-      <h2>Experience</h2>
+      <h2>EXPERIENCE<span class="dot">.</span></h2>
       <p>Describe your experience here.</p>
     </section>
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Contact me at: email@example.com</p>
+
+    <section id="projects">
+      <h2>PROJECTS<span class="dot">.</span></h2>
+      <p>Describe your experience here.</p>
     </section>
+
+    <footer>
+      <p>© 2024 Rok Levec. All rights reserved.</p>
+      <div class="social-logos">
+        <a href="https://github.com/Roks2002" target="_blank">
+          <img src="images/social-logos/github.png" alt="GitHub" />
+        </a>
+        <a
+          href="https://www.linkedin.com/in/rok-levec-0ab70b245/"
+          target="_blank"
+        >
+          <img src="images/social-logos/linkedin.png" alt="LinkedIn" />
+        </a>
+      </div>
+    </footer>
 
     <script src="script.js"></script>
   </body>

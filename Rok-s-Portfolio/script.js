@@ -1,7 +1,34 @@
+// Dark mode toggle functionality
+const toggleSwitch = document.getElementById("dark-mode-toggle");
+const body = document.body;
+const navbar = document.querySelector("nav");
+const navbarLinks = document.querySelectorAll(".navbar a");
+const frontPage = document.getElementById("front-page");
+
+toggleSwitch.addEventListener("change", () => {
+  body.classList.toggle("dark-mode");
+  navbar.classList.toggle("dark-mode");
+  navbarLinks.forEach((link) => {
+    link.classList.toggle("dark-mode");
+  });
+  frontPage.classList.toggle("dark-mode");
+});
+
+// Scrolling effect for navbar color change
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 0) {
+    // Check if scrolled down
+    navbar.classList.add("scrolled");
+  } else {
+    navbar.classList.remove("scrolled");
+  }
+});
+
+// Typing effect code
 const welcomeText = document.getElementById("welcome-text");
 const greetings = [
-  "Dobrodošli!",
   "Welcome!",
+  "Dobrodošli!",
   "Bienvenido!",
   "Willkommen!",
   "Bienvenida!",
@@ -11,9 +38,9 @@ const greetings = [
 
 let currentGreetingIndex = 0;
 let currentCharacterIndex = 0;
-let typingSpeed = 125; // Increased speed of typing
-let deletingSpeed = 75; // Increased speed of deleting
-let pauseBetweenGreetings = 1000; // Reduced pause between greetings
+let typingSpeed = 70;
+let deletingSpeed = 100;
+let pauseBetweenGreetings = 2500;
 
 function type() {
   if (currentCharacterIndex < greetings[currentGreetingIndex].length) {
@@ -36,14 +63,21 @@ function deleteText() {
     currentCharacterIndex--;
     setTimeout(deleteText, deletingSpeed);
   } else {
-    currentGreetingIndex = (currentGreetingIndex + 1) % greetings.length; // Move to the next greeting
-    // Ensure that the welcomeText starts empty without a space
+    currentGreetingIndex = (currentGreetingIndex + 1) % greetings.length;
     welcomeText.textContent = "";
-    currentCharacterIndex = 0; // Reset character index for the next greeting
-    setTimeout(type, typingSpeed); // Start typing the next greeting immediately
+    currentCharacterIndex = 0;
+    setTimeout(type, typingSpeed);
   }
 }
 
-// Initialize with an empty string
 welcomeText.textContent = "";
 type();
+
+// Lottie animation setup
+lottie.loadAnimation({
+  container: document.getElementById("lottie-container"), // the DOM element that will contain the animation
+  renderer: "svg", // render as SVG
+  loop: true, // repeat the animation
+  autoplay: true, // start automatically
+  path: "animations/front-page-animation.json", // path to the animation JSON file
+});

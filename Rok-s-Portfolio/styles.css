@@ -5,88 +5,203 @@
   box-sizing: border-box;
 }
 
+html {
+  height: 100%;
+}
+
 body {
   font-family: Arial, sans-serif;
-  background-color: #f0f0f0;
+  background-color: #ffffff;
   color: #333;
-  height: 100vh; /* Sets the body height to the full height of the window */
+  height: 100vh;
+  padding-top: 80px; /* Adjust this value based on your navbar height */
+  min-height: 100%;
+}
+
+footer {
+  margin-top: auto; /* Push footer to the bottom */
+}
+
+h1 {
+  font-size: 30px;
+}
+
+h2 {
+  color: #22524e;
+  font-weight: 900;
+  font-size: 2em;
+}
+
+.skills p {
+  margin-left: 20%;
 }
 
 /* Navbar styling */
 nav {
-  display: flex;
-  justify-content: flex-end; /* Aligns all items to the right */
-  background-color: #333;
-  padding: 1rem;
+  position: fixed; /* Keep the navbar fixed at the top */
+  top: 0; /* Align it to the top */
+  left: 0; /* Align it to the left */
+  right: 0; /* Align it to the right */
+  z-index: 1000; /* Ensure it stays above other elements */
+  width: 100%; /* Full width */
+  background-color: white; /* Navbar color when at the top */
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+  padding: 15px;
 }
 
 /* Reset for ul elements in nav */
 .navbar {
   list-style-type: none;
   display: flex;
+  margin-left: 50%;
+  justify-content: flex-start;
 }
 
 .navbar li {
-  margin: 0 10px;
+  margin-right: 20px;
 }
 
 .navbar a {
-  color: white;
+  color: #0b7886; /* Item color when at the top */
   text-decoration: none;
   padding: 0.5rem 1rem;
+  font-size: 1.5rem;
+  font-weight: 500;
 }
 
 .navbar a:hover {
-  background-color: #575757;
+  background-color: #2b776f;
   border-radius: 5px;
+  color: white;
 }
 
-/* Front-page styling */
+/* Dark mode toggle switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 25px;
+  margin-left: 20px;
+}
+
+.switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 4px;
+  bottom: 3.5px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #333;
+}
+
+input:checked + .slider:before {
+  transform: translateX(24px);
+}
+
+.navbar li:first-child a {
+  color: #22524e;
+  font-weight: 750;
+  font-size: 2em;
+  border: none;
+  background: none;
+  padding-top: 60%;
+}
+
+/* Front-page layout */
 #front-page {
+  background: url("video/front-page.mp4");
   display: flex;
-  flex-direction: column; /* Stacks all elements in a column */
-  justify-content: center; /* Vertically centers content */
-  align-items: flex-start; /* Aligns all items to the left */
-  height: 100vh; /* Sets the section height to the full height of the window */
-  background-color: #f0f0f0; /* Background color */
-  margin-left: 20%; /* Starts the section 20% from the left */
-  width: 80%; /* Adjusts width to fill the remaining space */
-  padding: 2rem; /* Adds padding to the section */
+  justify-content: space-between; /* Separate text and animation */
+  align-items: center;
+  height: 100vh;
+  padding: 2rem;
+  width: 100%;
+}
+
+.text-container {
+  flex: 1;
+  margin-left: 20%;
+}
+
+#lottie-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 800px; /* Adjust based on your design */
+  max-height: 700px; /* Adjust based on your design */
 }
 
 #front-page h1 {
-  font-size: 4rem; /* Increased font size */
+  font-size: 5rem; /* Make it bigger */
   color: #333;
-  margin-bottom: 0.5rem; /* Adds space between elements */
-  white-space: nowrap; /* Prevents the text from wrapping */
-  overflow: hidden; /* Hides the overflow */
-  border-right: 0.15em solid #333; /* Adds a cursor effect */
-  animation: blink 0.7s infinite; /* Blinking cursor effect */
-  height: 1.2em; /* Fixed height for the h1 element */
+  margin-bottom: 0.7rem;
+  line-height: 1.2; /* Optional: Adjust line height */
+}
+
+.gradient-text {
+  background: linear-gradient(
+    to right,
+    #22524e,
+    #58dff7
+  ); /* Gradient from red to blue */
+  -webkit-background-clip: text; /* Apply the gradient to the text */
+  -webkit-text-fill-color: transparent; /* Make the text transparent to show the gradient */
+  font-size: 3rem; /* Adjust font size as needed */
+}
+
+#front-page h2 {
+  font-size: 2.5rem;
+  color: #d8d510;
+  margin-bottom: 0.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 0.15em solid #333; /* Cursor style */
+  animation: blink 0.7s infinite; /* Cursor blinking effect */
+  height: 1.2em; /* Align height with text */
+  display: inline-block; /* Ensure it aligns with the text */
+  margin: 0;
 }
 
 @keyframes blink {
   50% {
-    border-color: transparent; /* Makes the cursor invisible at 50% */
+    border-color: transparent;
   }
-}
-
-#front-page h2 {
-  font-size: 2rem;
-  color: #666;
-  margin-bottom: 0.5rem; /* Adds space between elements */
 }
 
 #front-page h3 {
   font-size: 1.5rem;
   color: #888;
-  margin-bottom: 1rem; /* Adds space below the h3 for separation */
+  margin-bottom: 1rem;
+  max-width: 800px;
+  padding-top: 20px;
 }
 
 /* Section styling */
 section {
   padding: 2rem;
-  max-width: 800px;
   margin: 0 auto;
 }
 
@@ -98,9 +213,184 @@ section {
 
 h2 {
   margin-bottom: 1rem;
+  margin-left: 10%;
 }
 
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
+.dot {
+  color: rgb(71, 190, 194);
+  border-radius: 50%;
+}
+
+/* Dark mode styles */
+
+h2.dark-mode {
+  color: #4ec2b8;
+  font-weight: 900;
+  font-size: 2em;
+}
+
+body.dark-mode {
+  background-color: #1b1b1b;
+  color: #f0f0f0;
+}
+
+nav.dark-mode {
+  background-color: #1b1b1b;
+}
+
+.navbar a.dark-mode {
+  color: #d4edf8;
+}
+
+.navbar a.dark-mode:hover {
+  background-color: #11726d;
+}
+
+nav.dark-mode li:first-child a {
+  background: none;
+}
+
+nav.scrolled.dark-mode li:first-child a {
+  background: none;
+}
+
+#front-page.dark-mode h1,
+#front-page.dark-mode h3 {
+  color: #f0f0f0;
+}
+
+#front-page.dark-mode h2 {
+  color: #c7c405;
+}
+
+#front-page.dark-mode h1 {
+  border-right: 0.15em solid #f0f0f0;
+}
+
+/* Scrolled navbar styles */
+nav.scrolled {
+  background-color: #1e4946; /* Navbar color when scrolled */
+}
+
+nav.scrolled .navbar a {
+  color: white; /* Item color when scrolled */
+}
+
+nav.scrolled li:first-child a {
+  color: #dfdfdf;
+  font-weight: 750;
+  font-size: 2em;
+}
+#contact {
+  margin-top: 5%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 50%;
+  margin-bottom: 30%;
+}
+
+/* Contact form styling */
+form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+#form h2 {
+}
+
+form p {
+  margin-bottom: 2em;
+}
+form label {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: #22524e; /* Use the same color as the h2 */
+  padding-top: 1em;
+}
+
+form input,
+form textarea {
+  padding: 0.8rem;
+  margin-bottom: 1.2rem;
+  border: 1px solid #0b7886; /* Use the navbar link color */
+  border-radius: 5px;
+  font-size: 1rem;
+  background-color: #ffffff;
+  color: #333; /* Text color */
+}
+
+form input:focus,
+form textarea:focus {
+  border-color: #42b1a6; /* Change border color on focus */
+  outline: none;
+}
+
+form button {
+  background-color: #42b1a6; /* Use the hover background color from navbar */
+  color: white;
+  padding: 0.8rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #0b7886; /* Darker shade on hover */
+}
+
+/* Make textarea a bit taller */
+textarea {
+  resize: vertical;
+  height: 150px;
+}
+
+#contact .contact-container {
+  display: flex;
+  justify-content: space-between; /* Align the form and the animation side by side */
+  align-items: center;
+}
+
+#contact .form-container {
+  flex: 1;
+  max-width: 500px;
+}
+
+/* */
+footer {
+  display: flex;
+  justify-content: space-between; /* Space between elements */
+  align-items: center; /* Center vertically */
+  padding: 1rem 2rem; /* Padding for top/bottom and left/right */
+  background-color: #22524e; /* Light background for footer */
+  border-top: 1px solid #ccc; /* Optional border for top of footer */
+  margin-top: auto; /* Push footer to the bottom */
+  width: 100%; /* Full width */
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow effect */
+  height: 7em;
+}
+
+footer p {
+  margin: 0; /* Remove default margin */
+  color: #ffffff; /* Text color */
+}
+
+.social-logos {
+  display: flex;
+  gap: 1rem; /* Space between logos */
+  margin: 0 auto;
+}
+
+.social-logos img {
+  width: 50px; /* Adjust the size of the icons */
+  height: auto; /* Maintain aspect ratio */
+}
+
+/* Ensure responsiveness */
+@media (max-width: 768px) {
+  #contact .contact-container {
+    flex-direction: column; /* Stack the form and animation on smaller screens */
+  }
 }
