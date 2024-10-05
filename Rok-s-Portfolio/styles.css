@@ -312,6 +312,10 @@ nav.scrolled .navbar a {
   color: white;
 }
 
+body.dark-mode #projects p {
+  color: #22524e; /* Change the paragraph text color to red only in dark mode */
+}
+
 /* Skills section */
 #skills {
   display: flex;
