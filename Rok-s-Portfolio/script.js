@@ -81,3 +81,33 @@ lottie.loadAnimation({
   autoplay: true, // start automatically
   path: "animations/front-page-animation.json", // path to the animation JSON file
 });
+
+// Smooth scrolling for navbar links (except 'RL' and external links)
+navbarLinks.forEach((link) => {
+  const sectionId = link.getAttribute("href"); // Get the section ID from the href
+
+  // Handle 'Home' link scroll to top
+  if (sectionId === "#home") {
+    link.addEventListener("click", (event) => {
+      event.preventDefault(); // Prevent default anchor click behavior
+
+      // Scroll to the top of the page smoothly
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    });
+  }
+  // Handle internal section links with smooth scroll
+  else if (sectionId.startsWith("#")) {
+    link.addEventListener("click", (event) => {
+      event.preventDefault(); // Prevent default anchor click behavior
+
+      // Scroll to the section with smooth behavior
+      document.querySelector(sectionId).scrollIntoView({
+        behavior: "smooth",
+        block: "start", // Align the top of the section to the top of the viewport
+      });
+    });
+  }
+});

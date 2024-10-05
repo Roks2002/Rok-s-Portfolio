@@ -1,4 +1,4 @@
-/* Basic reset and styling */
+/* Global reset */
 * {
   margin: 0;
   padding: 0;
@@ -14,12 +14,20 @@ body {
   background-color: #ffffff;
   color: #333;
   height: 100vh;
-  padding-top: 80px; /* Adjust this value based on your navbar height */
+  padding-top: 80px; /* Adjust based on navbar height */
   min-height: 100%;
 }
 
-footer {
-  margin-top: auto; /* Push footer to the bottom */
+p {
+  color: #347268;
+  font-size: 1.5em;
+}
+
+#skills p,
+#experience p,
+#projects p {
+  margin-left: 15%;
+  margin-right: 15%;
 }
 
 h1 {
@@ -32,29 +40,32 @@ h2 {
   font-size: 2em;
 }
 
-.skills p {
-  margin-left: 20%;
+#skills h2,
+#experience h2,
+#projects h2 {
+  margin-left: 10%;
+  padding: 1em;
 }
 
 /* Navbar styling */
 nav {
-  position: fixed; /* Keep the navbar fixed at the top */
-  top: 0; /* Align it to the top */
-  left: 0; /* Align it to the left */
-  right: 0; /* Align it to the right */
-  z-index: 1000; /* Ensure it stays above other elements */
-  width: 100%; /* Full width */
-  background-color: white; /* Navbar color when at the top */
-  transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  width: 100%;
+  background-color: white;
+  transition: background-color 0.3s, color 0.3s;
   padding: 15px;
 }
 
-/* Reset for ul elements in nav */
 .navbar {
   list-style-type: none;
   display: flex;
   margin-left: 50%;
   justify-content: flex-start;
+  align-items: center;
 }
 
 .navbar li {
@@ -62,10 +73,10 @@ nav {
 }
 
 .navbar a {
-  color: #0b7886; /* Item color when at the top */
+  color: #0b7886;
   text-decoration: none;
   padding: 0.5rem 1rem;
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: 500;
 }
 
@@ -121,23 +132,21 @@ input:checked + .slider:before {
 }
 
 .navbar li:first-child a {
-  color: #22524e;
+  color: #307771;
   font-weight: 750;
   font-size: 2em;
   border: none;
   background: none;
-  padding-top: 60%;
 }
 
 /* Front-page layout */
 #front-page {
   background: url("video/front-page.mp4");
   display: flex;
-  justify-content: space-between; /* Separate text and animation */
+  justify-content: space-between;
   align-items: center;
   height: 100vh;
   padding: 2rem;
-  width: 100%;
 }
 
 .text-container {
@@ -150,26 +159,22 @@ input:checked + .slider:before {
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 800px; /* Adjust based on your design */
-  max-height: 700px; /* Adjust based on your design */
+  max-width: 800px;
+  max-height: 700px;
 }
 
 #front-page h1 {
-  font-size: 5rem; /* Make it bigger */
+  font-size: 5rem;
   color: #333;
   margin-bottom: 0.7rem;
-  line-height: 1.2; /* Optional: Adjust line height */
+  line-height: 1.2;
 }
 
 .gradient-text {
-  background: linear-gradient(
-    to right,
-    #22524e,
-    #58dff7
-  ); /* Gradient from red to blue */
-  -webkit-background-clip: text; /* Apply the gradient to the text */
-  -webkit-text-fill-color: transparent; /* Make the text transparent to show the gradient */
-  font-size: 3rem; /* Adjust font size as needed */
+  background: linear-gradient(to right, #22524e, #58dff7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 3rem;
 }
 
 #front-page h2 {
@@ -178,10 +183,10 @@ input:checked + .slider:before {
   margin-bottom: 0.5rem;
   white-space: nowrap;
   overflow: hidden;
-  border-right: 0.15em solid #333; /* Cursor style */
-  animation: blink 0.7s infinite; /* Cursor blinking effect */
-  height: 1.2em; /* Align height with text */
-  display: inline-block; /* Ensure it aligns with the text */
+  border-right: 0.15em solid #333;
+  animation: blink 0.7s infinite;
+  height: 1.2em;
+  display: inline-block;
   margin: 0;
 }
 
@@ -211,22 +216,26 @@ section {
   margin-top: 2rem;
 }
 
-h2 {
-  margin-bottom: 1rem;
-  margin-left: 10%;
-}
-
 .dot {
   color: rgb(71, 190, 194);
   border-radius: 50%;
 }
 
 /* Dark mode styles */
+body.dark-mode p {
+  color: #b9ecec;
+}
 
 h2.dark-mode {
   color: #4ec2b8;
-  font-weight: 900;
-  font-size: 2em;
+}
+
+body.dark-mode #contact h2 {
+  color: #bfe0df;
+}
+
+body.dark-mode #contact .dot {
+  color: #65dbd5;
 }
 
 body.dark-mode {
@@ -238,6 +247,11 @@ nav.dark-mode {
   background-color: #1b1b1b;
 }
 
+.dark-mode .navbar li:first-child a:hover {
+  background: none !important; /* Ensure no hover background */
+  color: #22524e;
+}
+
 .navbar a.dark-mode {
   color: #d4edf8;
 }
@@ -246,12 +260,11 @@ nav.dark-mode {
   background-color: #11726d;
 }
 
-nav.dark-mode li:first-child a {
-  background: none;
-}
-
-nav.scrolled.dark-mode li:first-child a {
-  background: none;
+.dark-mode .gradient-text {
+  background: linear-gradient(to right, #63bdc4, #dbf4f8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 3rem;
 }
 
 #front-page.dark-mode h1,
@@ -260,35 +273,142 @@ nav.scrolled.dark-mode li:first-child a {
 }
 
 #front-page.dark-mode h2 {
-  color: #c7c405;
+  color: #f3f161;
 }
 
-#front-page.dark-mode h1 {
-  border-right: 0.15em solid #f0f0f0;
+.dark-mode h2 {
+  color: #4ec2b8;
+}
+
+.dark-mode .dot {
+  color: #22524e;
+}
+
+body.dark-mode #experience p {
+  color: #22524e;
+}
+
+body.dark-mode #contact {
+  background-color: #22524e;
+}
+
+body.dark-mode form input,
+body.dark-mode form textarea {
+  background-color: #22524e; /* Darker background for inputs and textarea */
+  color: #f0f0f0; /* Text color in inputs and textarea */
+  border: 1px solid #d4edf8; /* Light border color */
+}
+
+body.dark-mode form label {
+  color: #bfe0df;
 }
 
 /* Scrolled navbar styles */
 nav.scrolled {
-  background-color: #1e4946; /* Navbar color when scrolled */
+  background-color: #22524e;
 }
 
 nav.scrolled .navbar a {
-  color: white; /* Item color when scrolled */
+  color: white;
 }
 
-nav.scrolled li:first-child a {
-  color: #dfdfdf;
-  font-weight: 750;
-  font-size: 2em;
+/* Skills section */
+#skills {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 15rem;
 }
+
+.skills-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 2rem;
+}
+
+.left-image {
+  flex: 1;
+  max-width: 45%;
+  padding-right: 20px;
+}
+
+.prog-logos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  max-width: 50%;
+  margin-right: 20%;
+}
+
+.prog-logos img {
+  width: 80px;
+  transition: transform 0.3s ease;
+}
+
+.prog-logos img:hover {
+  transform: scale(1.1);
+}
+
+#experience {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; /* Stack elements vertically */
+  padding: 2rem;
+  background: linear-gradient(to right, #45858a, #2b6360);
+  display: flex;
+  height: 100vh;
+  padding-bottom: 15rem;
+}
+
+#experience h2 {
+  color: white;
+}
+.experience-container {
+  display: flex;
+  justify-content: space-between; /* Aligns text and logos */
+  align-items: center; /* Center aligns vertically */
+  width: 80%; /* Adjust width as needed */
+  margin-top: 2rem; /* Space between header and content */
+  background-color: white;
+  height: 70%;
+  border-radius: 15px;
+}
+
+.experience-text {
+  flex: 1; /* Allows the text section to take up space */
+  padding-right: 20px; /* Space between text and logos */
+}
+
+.experience-logos {
+  display: flex; /* Flex container for logos */
+  flex: 1; /* Allows logos to take equal space */
+  justify-content: space-around; /* Distributes logos evenly */
+}
+
+.experience-logos img {
+  max-width: 80px; /* Set a maximum width for logos */
+  transition: transform 0.3s ease; /* Animation for hover effect */
+}
+
+.experience-logos img:hover {
+  transform: scale(1.1); /* Scale logo on hover */
+}
+
+.experience h2 {
+  align-items: center;
+  justify-content: center;
+}
+
+/* Contact section */
 #contact {
   margin-top: 5%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 50%;
   margin-bottom: 30%;
+  border-radius: 10px;
 }
 
-/* Contact form styling */
 form {
   display: flex;
   flex-direction: column;
@@ -297,13 +417,10 @@ form {
   margin: 0 auto;
 }
 
-form p {
-  margin-bottom: 2em;
-}
 form label {
   font-size: 1rem;
   margin-bottom: 0.5rem;
-  color: #22524e; /* Use the same color as the h2 */
+  color: #22524e;
   padding-top: 1em;
 }
 
@@ -311,21 +428,21 @@ form input,
 form textarea {
   padding: 0.8rem;
   margin-bottom: 1.2rem;
-  border: 1px solid #0b7886; /* Use the navbar link color */
+  border: 1px solid #0b7886;
   border-radius: 5px;
   font-size: 1rem;
   background-color: #ffffff;
-  color: #333; /* Text color */
+  color: #333;
 }
 
 form input:focus,
 form textarea:focus {
-  border-color: #42b1a6; /* Change border color on focus */
+  border-color: #42b1a6;
   outline: none;
 }
 
 form button {
-  background-color: #42b1a6; /* Use the hover background color from navbar */
+  background-color: #42b1a6;
   color: white;
   padding: 0.8rem;
   font-size: 1rem;
@@ -335,10 +452,9 @@ form button {
 }
 
 form button:hover {
-  background-color: #0b7886; /* Darker shade on hover */
+  background-color: #0b7886;
 }
 
-/* Make textarea a bit taller */
 textarea {
   resize: vertical;
   height: 150px;
@@ -346,48 +462,129 @@ textarea {
 
 #contact .contact-container {
   display: flex;
-  justify-content: space-between; /* Align the form and the animation side by side */
+  justify-content: center; /* Center content horizontally */
   align-items: center;
 }
 
 #contact .form-container {
-  flex: 1;
-  max-width: 500px;
+  flex: none; /* No need for flex-grow */
+  max-width: 500px; /* Set a max width */
+  width: 100%; /* Ensure the form container takes full width */
+  margin: 0 auto; /* Center the form horizontally */
 }
 
-/* */
+/* Projects section styling */
+#projects {
+  padding: 4rem 2rem; /* Increased top and bottom padding */
+  margin-bottom: 9rem; /* Add margin below the section */
+}
+
+.projects-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns */
+  gap: 2rem;
+  margin: 2rem 15%;
+}
+
+.project {
+  position: relative;
+  background-color: #f9f9f9;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  color: #333;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.project h3 {
+  margin-top: 0.5rem;
+  font-size: 1.25rem;
+  color: #22524e;
+}
+
+.project p {
+  font-size: 1rem;
+  color: #555;
+}
+
+.github-logo {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 30px;
+  height: 30px;
+}
+
+.github-logo img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.github-logo img:hover {
+  transform: scale(1.2);
+}
+
+.project:hover .github-logo img {
+  transform: rotate(360deg);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .projects-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .projects-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Footer styling */
 footer {
   display: flex;
-  justify-content: space-between; /* Space between elements */
-  align-items: center; /* Center vertically */
-  padding: 1rem 2rem; /* Padding for top/bottom and left/right */
-  background-color: #22524e; /* Light background for footer */
-  border-top: 1px solid #ccc; /* Optional border for top of footer */
-  margin-top: auto; /* Push footer to the bottom */
-  width: 100%; /* Full width */
-  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow effect */
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #22524e;
+  margin-top: auto;
+  width: 100%;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
   height: 7em;
 }
 
 footer p {
-  margin: 0; /* Remove default margin */
-  color: #ffffff; /* Text color */
+  margin: 0;
+  color: #ffffff;
+  font-size: 1em;
 }
 
 .social-logos {
   display: flex;
-  gap: 1rem; /* Space between logos */
+  gap: 1rem;
   margin: 0 auto;
 }
 
 .social-logos img {
-  width: 50px; /* Adjust the size of the icons */
-  height: auto; /* Maintain aspect ratio */
+  width: 60px;
+  transition: transform 0.6s ease, width 0.6s ease;
+}
+
+.social-logos img:hover {
+  transform: rotate(360deg) scale(1.1);
 }
 
 /* Ensure responsiveness */
 @media (max-width: 768px) {
   #contact .contact-container {
-    flex-direction: column; /* Stack the form and animation on smaller screens */
+    flex-direction: column;
   }
 }
